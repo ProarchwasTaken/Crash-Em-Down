@@ -3,7 +3,7 @@ import pygame as pg
 
 
 def update(current_time: float, delta_time: float):
-    pass
+    """This is where everything in the scene gets updated."""
 
 
 def eventHandler(event):
@@ -11,4 +11,5 @@ def eventHandler(event):
 
 
 def draw(canvas: pg.Surface):
+    """This is where everything in the scene gets updated."""
     canvas.fill(COLORS["black"])

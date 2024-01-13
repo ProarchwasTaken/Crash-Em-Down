@@ -1,6 +1,8 @@
 import pygame as pg
 import sys
-from constants import RESOLUTION, FPS, COLORS
+from constants import RESOLUTION, FPS, gameState, GAME, TITLE
+import scenes.title
+import scenes.game
 
 
 def main():
@@ -16,15 +18,19 @@ def main():
     current_time: float = pg.time.get_ticks() / 1000
     prev_time = current_time
 
-    def updateScene():
-        """This is where everything in the scene gets updated."""
-        pass
+    def updateScene(delta_time: float):
+        """Updates the scene. What scene is updated depends on the current game state."""
+        if gameState() == TITLE:
+            scenes.title.update(current_time, delta_time)
+        elif gameState() == GAME:
+            scenes.game.update(current_time, delta_time)
 
     def drawScene():
-        """This is where everything in the scene gets updated."""
-        canvas.fill(COLORS["gray"])
-        pg.draw.rect(canvas, COLORS["white"], (50,50, 700,500))
-        pg.draw.rect(canvas, COLORS["yellow"], (50,550, 700,25))
+        """Draws the scene. What scene is drawn is based on the current game state."""
+        if gameState() == TITLE:
+            scenes.title.draw(canvas)
+        elif gameState() == GAME:
+            scenes.game.draw(canvas)
 
         window.blit(canvas, (0, 0))
         pg.display.flip()
@@ -34,7 +40,7 @@ def main():
         clock.tick(FPS)
 
         current_time: float = pg.time.get_ticks() / 1000
-        deltatime: float = current_time - prev_time
+        delta_time: float = current_time - prev_time
 
         prev_time = current_time
 
@@ -43,7 +49,12 @@ def main():
                 pg.quit()
                 sys.exit()
 
-        updateScene()
+            if gameState() == TITLE:
+                scenes.title.eventHandler(event)
+            if gameState() == GAME:
+                scenes.game.eventHandler(event)
+
+        updateScene(delta_time)
         drawScene()
 
 
