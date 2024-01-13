@@ -13,17 +13,20 @@ COLORS: dict = {
     "yellow": (255, 255, 0),
 }
 
-_game_state: bool = False
+_game_state: int = 0
+
+TITLE: int = 0
+GAME: int = 1
 
 
-def gameState() -> bool:
+def gameState() -> int:
     """Most important variable in the game. Determines what state the game should be in and wether it should be in the
     title scene, or the game scene. This function returns the value of _game_state and it must be called instead of
     checking the variable directly."""
     return _game_state
 
 
-def changeGameState(value: bool):
+def changeGameState(value: int):
     """This function must be called in order to change the _game_state variable."""
     global _game_state
     _game_state = value
