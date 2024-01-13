@@ -22,7 +22,9 @@ def main():
 
     def drawScene():
         """This is where everything in the scene gets updated."""
-        canvas.fill(COLORS["white"])
+        canvas.fill(COLORS["gray"])
+        pg.draw.rect(canvas, COLORS["white"], (50,50, 700,500))
+        pg.draw.rect(canvas, COLORS["yellow"], (50,550, 700,25))
 
         window.blit(canvas, (0, 0))
         pg.display.flip()
