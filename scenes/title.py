@@ -13,3 +13,4 @@ def eventHandler(event):
 def draw(canvas: pg.Surface):
     """This is where everything in the scene gets updated."""
     canvas.fill(COLORS["black"])
+    
