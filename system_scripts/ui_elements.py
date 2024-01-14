@@ -47,5 +47,10 @@ class Text:
         elif alignment == -RIGHT:
             new_x += txt_width
 
+        else:
+            raise ValueError(
+                "You can only use integers ranging from -1 to 1 when setting alignment!"
+            )
+
     def draw(self, canvas: pg.Surface):
         canvas.blit(self.text, self.position)
