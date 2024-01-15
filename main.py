@@ -1,8 +1,6 @@
 import pygame as pg
 import sys
 from constants import RESOLUTION, FPS, gameState, GAME, TITLE
-import scenes.title
-import scenes.game
 
 
 def main():
@@ -17,6 +15,9 @@ def main():
     clock = pg.time.Clock()
     current_time: float = pg.time.get_ticks() / 1000
     prev_time = current_time
+
+    import scenes.title
+    import scenes.game
 
     def updateScene(delta_time: float):
         """Updates the scene. What scene is updated depends on the current game state."""
