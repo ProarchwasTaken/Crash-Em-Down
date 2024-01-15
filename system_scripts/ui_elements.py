@@ -79,7 +79,7 @@ class Button(Text):
             text, position, txt_size, txt_color, txt_bgColor, font, alignment
         )
 
-        self.rect = pg.FRect((self.position), self.text.get_size())
+        self.rect = pg.Rect((self.position), self.text.get_size())
         self.btn_callable = callable
         self.btn_arguments = arguments
 
