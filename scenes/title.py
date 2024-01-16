@@ -2,7 +2,7 @@ from constants import COLORS, changeGameState, GAME
 import pygame as pg
 from system_scripts.ui_elements import Text, Button
 
-title_text = Text("Crash em Down!", (400, 48), txt_size=80, alignment=0)
+title_text = Text("Crash Em Down!", (400, 48), txt_size=80, alignment=0)
 
 play_button = Button(
     "Play", (400, 300), callable=changeGameState, arguments=(GAME), txt_size=64
